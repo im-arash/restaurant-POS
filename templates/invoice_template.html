@@ -1,0 +1,125 @@
+<html>
+<head>
+<style>
+    body {
+        color: #333;
+        font-family: Helvetica, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .invoice-info {
+        width: 95%;
+    }
+
+    .invoice-info p {
+        margin: 5px 0;
+        font-size: 10px;
+    }
+
+    .invoice-table {
+        width: 95%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        /* margin: 0 auto 20px auto; */
+    }
+
+    .invoice-table th, .invoice-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+    }
+
+    .invoice-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .invoice-table td {
+        text-align: left;
+    }
+
+    /* Add horizontal lines under each row */
+    .invoice-table tr td {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .totals-table {
+        margin-top: 20px;
+        width: 50%;
+        border-collapse: collapse;
+        margin-left: 0; /* stick to left */
+        margin-bottom: 20px;
+    }
+
+    .totals-table td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    .totals-table .label {
+        font-weight: bold;
+        text-align: left;
+        width: 50%;
+    }
+
+    .thank-you {
+        text-align: center;
+        margin-top: 20px;
+        font-style: italic;
+    }
+
+</style>
+</head>
+<body>
+
+    <h2>Viuna Cafe</h2>
+
+    <!-- Invoice info -->
+    <div class="invoice-info">
+        <p><b>Date:</b> {{DATE}}</p>
+        <p><b>Invoice #:</b> {{INVOICE_NUMBER}}</p>
+    </div>
+
+    <!-- Items table -->
+    <table class="invoice-table" width="100%">
+        <thead>
+            <tr>
+                <th style="width: 55%;">Item</th>
+                <th style="width: 15%; text-align:center;">Quantity</th>
+                <th style="width: 15%; text-align:center;">Price</th>
+                <th style="width: 15%; text-align:center;">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ITEM_ROWS}}
+        </tbody>
+    </table>
+
+    <!-- Totals -->
+    <table class="totals-table">
+        <tr>
+            <td class="label">Subtotal:</td>
+            <td>{{SUBTOTAL}}</td>
+        </tr>
+        <tr>
+            <td class="label">Tax (10%):</td>
+            <td>{{TAX}}</td>
+        </tr>
+        <tr>
+            <td class="label"><b>Grand Total:</b></td>
+            <td><b>{{GRAND_TOTAL}}</b></td>
+        </tr>
+    </table>
+
+    <p class="thank-you">Sip. Smile. Repeat.</p>
+
+</body>
+</html>
